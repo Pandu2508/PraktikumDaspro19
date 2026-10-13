@@ -1,0 +1,29 @@
+import java.util.Scanner;
+public class nestedUjianSkripsi19 {
+
+    public static void main(String[] args) {
+        try (Scanner input = new Scanner(System.in)) {
+            String pesan;
+            System.out.print("Apakah mahasiswa sudah bebas kompen (ya/tidak)? : ");
+            String bebasKompen = input.nextLine().trim();
+            if (bebasKompen.equalsIgnoreCase("ya")) {
+                System.out.print("Masukan jumlah log bimbingan Pembimbing 1 : ");
+                int bimbinganP1 = input.nextInt();
+                System.out.print("Masukan jumlah log bimbingan Pembimbing 2 : ");
+                int bimbinganP2 = input.nextInt();
+                if (bimbinganP1 >= 8 && bimbinganP2 >= 4) {
+                    pesan = "Semua syarat terpenuhi.Mahasiswa boleh mendaftar ujian skripsi";
+                } else if (bimbinganP1 < 8 && bimbinganP2 < 4) {
+                    pesan = "Gagal! Log bimbingan P1 kurang dari 8 kali dan log bimbingan P2 kurang dari 4 kali";
+                } else if (bimbinganP1 < 8) {
+                    pesan = "Gagal! Log bimbingan P1 kurang dari 8 kali";
+                } else {
+                    pesan = "Gagal! Log bimbingan P2 kurang dari 4 kali";
+                }
+            } else {
+                pesan = "Gagal! Mahasiswa masih memiliki tanggungan kompen";
+            }
+            System.out.println(pesan);
+        }
+    }
+}
